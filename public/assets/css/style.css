@@ -1,0 +1,37 @@
+.navbar-logo {
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+a,
+a:link {
+  color: white;
+}
+
+.articles-gallery {
+  margin-top: 80px !important;
+}
+
+.article-img {
+  height: 200px;
+  line-height: 200px;
+  background: #b50000;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.article-img p {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.container {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #b50000;
+  color: white;
+}

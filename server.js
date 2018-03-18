@@ -34,9 +34,9 @@ app.use(express.static("public"));
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/sfgate-scrapper", {});
+mongoose.connect("mongodb://localhost/sf-scraper", {});
 
-
+require('./routes/routes.js')(app);
 
 
 app.listen(PORT, function () {

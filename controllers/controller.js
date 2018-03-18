@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 var axios = require("axios");
 var db = require('../models')
 
-exports.index = function (req, res) {
-    res.render('index')
+exports.firstPage = function (req, res) {
+    res.render('firstPage')
 }
 
 // Routes
@@ -17,4 +17,14 @@ exports.scrape = function (req, res) {
         // If we were able to successfully scrape and save an Article, send a message to the client
         res.send("Scrape Complete");
     })
+}
+
+exports.showArticles = function (req, res) {
+    db.Article.find({})
+        .then(function (data) {
+            res.json(data)
+        })
+        .catch(function (err) {
+            res.json(err)
+        });
 }
