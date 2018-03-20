@@ -1,30 +1,43 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var mongoose = require('mongoose');
-var axios = require("axios");
-var db = require('../models')
+var axios = require('axios');
+var db = require('../models');
 
-exports.firstPage = function (req, res) {
-    res.render('firstPage')
-}
+exports.index = (req, res) => res.render('index');
 
 // Routes
+exports.scrape = (req, res) => {
+  request.get('https://www.sfgate.com/', function(error, response, html) {
+    var $ = cheerio.load(html);
 
-exports.scrape = function (req, res) {
-    axios.get('http://sfgate.com/').then(function (response) {
-        var $ = cheerio.load(response.data);
+    $('div.itemWrapper').each(function(i, element) {
+      var newArticleArr = {};
 
-        // If we were able to successfully scrape and save an Article, send a message to the client
-        res.send("Scrape Complete");
-    })
-}
+      newArticleArr.title = $(this)
+        .find('h5 a')
+        .text();
 
-exports.showArticles = function (req, res) {
-    db.Article.find({})
-        .then(function (data) {
-            res.json(data)
-        })
-        .catch(function (err) {
-            res.json(err)
-        });
-}
+      newArticleArr.url = $(this)
+        .children('h5')
+        .children('a')
+        .attr('href');
+
+      // console.log(newArticleArr);
+      var entry = new db.Article(newArticleArr);
+      entry.save(function(err, doc) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(doc);
+        }
+      });
+    });
+  });
+};
+
+exports.showArticles = (req, res) => {
+  db.Article.find({})
+    .then(data => res.json(data))
+    .catch(err => res.json(err));
+};

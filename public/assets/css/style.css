@@ -4,26 +4,31 @@
   justify-content: center;
 }
 
+button {
+  cursor: pointer;
+}
+
 a,
 a:link {
   color: white;
 }
 
-.articles-gallery {
+.articles-container {
   margin-top: 80px !important;
 }
 
 .article-img {
-  height: 200px;
-  line-height: 200px;
   background: #b50000;
   color: white;
   margin-bottom: 30px;
+  padding: 40px;
+  text-align: left;
 }
 
-.article-img p {
+.article-img h4 {
   display: inline-block;
   vertical-align: middle;
+  font-weight: 300;
 }
 
 .container {

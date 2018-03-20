@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="container">
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="row">
+                <a href="#" class="col-sm-4 navbar-logo text-left">
+                    <spam>Home</spam>
+                </a>
+                <a href="#" class="col-sm-4 navbar-logo text-center">
+                    <h1>SFS</h1>
+                </a>
+                <a href="#" class="col-sm-4 navbar-logo text-right">
+                    <spam>Saved Articles</spam>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row articles-container">
+
+        {{#each articles}}
+        <div class="col-md-6 text-center ">
+            <div class="article-img">
+                <a href="{{link}}">
+                    <h4 id="title">{{headline}}</h4>
+                    <p id="summary">{{body}}</p>
+                </a>
+                <button class="btn primary-btn" id="save" data-id="{{_id}}">Save Article</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+
+
+</section>
+
+<footer class="text-muted">
+    <div class="container">
+        footer
+    </div>
+</footer>
