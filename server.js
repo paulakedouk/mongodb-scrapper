@@ -6,7 +6,7 @@ var mongojs = require('mongojs');
 var request = require('request');
 var cheerio = require('cheerio');
 var exphbs = require('express-handlebars');
-var routes = require('./routes/routes');
+var index = require('./routes/routes');
 var db = require('./models');
 
 // Initialize Express
@@ -38,6 +38,8 @@ app.set('view engine', '.hbs');
 
 mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/sfScraper', {});
+
+require('./routes/routes.js')(app);
 
 app.listen(PORT, function() {
   console.log('App running on port', PORT);

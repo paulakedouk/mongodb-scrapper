@@ -1,13 +1,14 @@
-<div class="panel panel-default">
-
-    <div class="panel-heading">
-        <h3>
-            <a class="article-link" target="_blank" href="{{url}}">{{title}}"</a>
-            <a class="btn btn-success save">Save Article</a>
-        </h3>
+<div class="col-md-6 text-center ">
+    <div class="panel article-container">
+        <a href="{{link}}">
+            <h4 id="title">{{headline}}</h4>
+            <p id="summary">{{body}}</p>
+        </a>
+        <a href="{{link}}" class="pull-right" target="_blank">
+            <div class="imgBox">
+                <img src="{{imgUrl}}" alt="image" class="storyImg" height="150" />
+            </div>
+        </a>
+        <button class="btn primary-btn" id="save" data-id="{{_id}}">Save Article</button>
     </div>
-
-    <div class="panel-body">{{summary}}
-    </div>
-
 </div>

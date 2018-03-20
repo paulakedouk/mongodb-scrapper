@@ -1,10 +1,25 @@
-$(document).on('click', '#save', function(e) {
-  e.preventDefault();
-
-  let articleId = $(this).data('id');
+$(document).on('click', '#scrape', function(event) {
+  event.preventDefault();
   $.ajax({
-    url: '/articles/save/' + articleId,
-    type: 'GET',
+    method: 'GET',
+    url: '/scrape'
+  }).done(function(response) {
+    alert('Articles scraped');
+    location.reload();
+  });
+});
+
+$(document).on('click', '#save', function(event) {
+  event.preventDefault();
+  // console.log($(this).data('id'));
+  let articleId = {
+    id: $(this).data('id')
+  };
+
+  $.ajax({
+    method: 'PUT',
+    data: articleId,
+    url: '/article',
     success: function(response) {
       window.location.href = '/';
     },
@@ -12,7 +27,7 @@ $(document).on('click', '#save', function(e) {
       showErrorModal(error);
     }
   });
-}); //end of #saveArticle click event
+});
 
 function showErrorModal(error) {
   $('#error').modal('show');
