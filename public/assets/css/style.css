@@ -13,12 +13,17 @@ a:link {
   color: white;
 }
 
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .articles {
   margin-top: 80px !important;
 }
 
 .article-container {
-  background: #b50000;
+  background: #00a562;
   color: white;
   margin-bottom: 30px;
   padding: 40px;
@@ -37,7 +42,7 @@ a:link {
 }
 
 .header {
-  background-color: #b50000;
+  background-color: #00a562;
   color: white;
 }
 

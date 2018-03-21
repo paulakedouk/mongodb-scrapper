@@ -4,11 +4,16 @@
             <h4 id="title">{{headline}}</h4>
             <p id="summary">{{body}}</p>
         </a>
+        {{#if saved}}
         <a href="{{link}}" class="pull-right" target="_blank">
             <div class="imgBox">
                 <img src="{{imgUrl}}" alt="image" class="storyImg" height="150" />
             </div>
+            <button class="btn primary-btn" id="delete" data-id="{{_id}}">Delete</button>
+            <button class="btn primary-btn" id="comment" data-id="{{_id}}">Comment</button>
         </a>
+        {{/if}}
         <button class="btn primary-btn" id="save" data-id="{{_id}}">Save Article</button>
+
     </div>
 </div>

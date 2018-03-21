@@ -21,6 +21,7 @@ $(document).on('click', '#save', function(event) {
     data: articleId,
     url: '/article',
     success: function(response) {
+      alert('Article saved!');
       window.location.href = '/';
     },
     error: function(error) {
