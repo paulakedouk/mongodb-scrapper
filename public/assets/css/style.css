@@ -58,3 +58,50 @@ a:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+.modal-body {
+  padding-top: 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modal-title {
+  font-weight: 300;
+}
+
+.btn-modal {
+  background-color: #00a562;
+  color: white;
+}
+
+.note-input {
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #777;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.no-notes,
+.all-notes {
+  margin: 40px 0 20px 0 !important;
+}
+
+.note-title,
+.no-notes,
+.modal-title,
+.note-body {
+  color: gray;
+}
+
+.note-title,
+.note-body {
+  padding-left: 15px;
+  margin: 0;
+}
+
+.delete-note {
+  position: absolute;
+  right: 20px;
+}

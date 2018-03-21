@@ -81,3 +81,32 @@ exports.savedArticles = (req, res) => {
     res.json(data);
   });
 };
+
+exports.deleteArticle = (req, res) => {
+  db.Article.update({ _id: Object(req.body.id) }, { $set: { saved: false } }).then(function(result) {
+    console.log('Article deleted');
+    return res.status(200).end();
+  });
+};
+
+exports.notes = (req, res) => {
+  db.Article.findOne({ _id: req.params.id })
+    .populate('notes')
+    .then(results => res.json(results))
+    .catch(err => res.json(err));
+};
+
+exports.saveNotes = (req, res) => {
+  let { title, body, articleId } = req.body;
+  let note = {
+    title,
+    body
+  };
+  db.Note.create(note)
+    .then(result => {
+      db.Article.findOneAndUpdate({ _id: articleId }, { $push: { notes: result._id } }, { new: true })
+        .then(data => res.json(result))
+        .catch(err => res.json(err));
+    })
+    .catch(err => res.json(err));
+};
