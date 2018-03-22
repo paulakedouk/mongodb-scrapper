@@ -114,7 +114,7 @@ $(document).ready(function() {
       data: articleId,
       url: '/article',
       success: function(response) {
-        window.location.href = '/saved';
+        window.location.href = '/';
       },
       error: function(error) {
         showErrorModal(error);
