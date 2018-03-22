@@ -13,24 +13,6 @@ module.exports = function(app) {
   app.delete('/article', controller.deleteArticle);
   app.get('/notes/:id', controller.notes);
   app.post('/notes/newNote', controller.saveNotes);
+  app.post('/notes/oneNote/:id', controller.oneNote);
+  app.post('/notes/deleteNote', controller.deleteNote);
 };
-
-// app.get('/save/:id', (req, res) => {
-//   db.Article.update({ _id: req.params.id }, { saved: true })
-//     .then(result => res.redirect('/'))
-//     .catch(err => res.json(err));
-// });
-
-// app.get('/viewSaved', (req, res) => {
-//   db.Article.find({})
-//     .then(result => res.render('savedArticles', { articles: result }))
-//     .catch(err => res.json(err));
-// });
-
-// app.delete('/deleteArticle/:id', (req, res) => {
-//   db.Article.remove({ _id: req.params.id })
-//     .then(result => res.json(result))
-//     .catch(err => res.json(err));
-// });
-
-// module.exports = router;

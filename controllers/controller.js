@@ -90,7 +90,7 @@ exports.deleteArticle = (req, res) => {
 };
 
 exports.notes = (req, res) => {
-  db.Article.findOne({ _id: req.params.id })
+  db.Article.findOne({ _id: Object(req.body.id) })
     .populate('notes')
     .then(results => res.json(results))
     .catch(err => res.json(err));
@@ -108,5 +108,19 @@ exports.saveNotes = (req, res) => {
         .then(data => res.json(result))
         .catch(err => res.json(err));
     })
+    .catch(err => res.json(err));
+};
+
+exports.deleteNote = (req, res) => {
+  // console.log(req.body);
+  let { articleId, noteId } = req.body;
+  db.Note.remove({ _id: noteId })
+    .then(result => res.json(result))
+    .catch(err => res.json(err));
+};
+
+exports.oneNote = (req, res) => {
+  db.Note.findOne({ _id: Object(req.body.id) })
+    .then(result => res.json(result))
     .catch(err => res.json(err));
 };

@@ -3,7 +3,7 @@
         <div class="navbar navbar-dark bg-dark box-shadow">
             <div class="row">
                 <a href="/scrape" class="col-sm-4 navbar-logo text-left">
-                    <button class="btn primary-btn" id="scrape">Scrape new Articles!</button>
+                    <button class="btn primary-btn" id="scrape" data-target="#alert-modal">Scrape new Articles!</button>
                 </a>
                 <a href="/" class="col-sm-4 navbar-logo text-center">
                     <h1>TechCrunch</h1>
@@ -31,6 +31,19 @@
                 <div class="modal-body text-center">
                     <h2>You have scraped
                         <span id="articles-count"></span> new articles</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="error" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>There was an error processing your request. Please try again later.</p>
                 </div>
             </div>
         </div>

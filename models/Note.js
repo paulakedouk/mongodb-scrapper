@@ -4,10 +4,7 @@ var Schema = mongoose.Schema;
 
 var noteSchema = new Schema({
   title: String,
-  body: {
-    type: String,
-    required: 'Cannot save!'
-  }
+  body: String
 });
 
 var Note = (module.exports = mongoose.model('Note', noteSchema));

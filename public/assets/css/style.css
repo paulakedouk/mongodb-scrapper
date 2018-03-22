@@ -72,6 +72,7 @@ a:hover {
 .btn-modal {
   background-color: #00a562;
   color: white;
+  margin-top: 30px;
 }
 
 .note-input {
