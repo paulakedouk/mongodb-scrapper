@@ -37,7 +37,8 @@ app.engine(
 app.set('view engine', '.hbs');
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/sfScraper', {});
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/techCrunchNews';
+mongoose.connect(MONGODB_URI);
 
 require('./routes/routes.js')(app);
 
